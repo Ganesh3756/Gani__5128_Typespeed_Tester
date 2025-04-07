@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Liter&display=swap');
+
+:root {
+    --bgcolor: #f3e9e9c1;
+    --textPrimary: rgb(11, 10, 2);
+    --textSecondary: #666;
+    --PrimaryColor: #fd4;
+}
+
+body {
+    font-family: "Liter", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--bgcolor);
+    color: var(--textPrimary);
+    font-size: 1.4rem; /* Fixed typo: `font_size` → `font-size` */
+}
+
+main {
+    width: 600px;
+    margin: 50px;
+}
+
+h1 {
+    color: var(--PrimaryColor); /* Fixed syntax error */
+}
+
+h1 svg {
+    width: 40px;
+    fill: var(--PrimaryColor);
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+
+#buttons {
+    text-align: right;
+}
+
+#info {
+    color: var(--PrimaryColor);
+}
+
+button {
+    background: rgba(225, 233, 7, 0.614);
+    border: 0;
+    color: rgba(171, 180, 182, 0.964);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div#game {
+    line-height: 35px; /* Fixed: `Line-height` → `line-height` */
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+}
+div#game:focus{
+    outline:0;
+}
+#words {
+    filter: blur(5px);
+    color: var(--textSecondary);
+}
+
+#game:focus #words {
+    filter: blur(0);
+}
+
+#focus-error {
+    position: absolute;
+    inset: 0;
+    text-align: center; /* Fixed: `text-allign` → `text-align` */
+    padding-top: 35px;
+}
+
+#game:focus #focus-error {
+    display: none;
+}
+
+div.word {
+    display: inline-block;
+    font-family: 'Liter', monospace;
+    margin: 0 5px;
+}
+
+.letter.correct {
+    color: #070606;
+}
+
+.letter.incorrect {
+    color: #f55;
+}
+
+/* Fixed blinking cursor animation */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#cursor {
+        width: 2px;
+        height: 1.6rem;
+        background-color: var(--PrimaryColor);
+        position: fixed;
+        top: 198px; 
+        left: 18px; 
+        animation: blink 0.3s infinite;
+}
